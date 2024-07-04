@@ -41,12 +41,6 @@ schema.pre('validate', function(next) {
     }
     next();
 });
-schema.virtual('posts', {
-    ref: 'Post',
-    localField: '_id',
-    foreignField:"creatorId",
-    justOne: false
-})
 schema.plugin(uniqueValidator, { message: 'This {PATH} has been already taken' })
 const User = mongoose.model("User", schema)
 export default User;
